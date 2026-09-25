@@ -1,6 +1,15 @@
 const fs = require("fs");
 const { PNG } = require("pngjs");
 
+const outputDir = "./colors";
+
+const size = {
+	width: 1,
+	height: 1
+};
+
+fs.mkdirSync(outputDir, { recursive: true });
+
 function hexToRgba(hex) {
 	hex = hex.replace("#", "");
 
@@ -34,11 +43,6 @@ function hexToRgba(hex) {
 	return [r, g, b, a];
 }
 
-const size = {
-	width: 100,
-	height: 100
-};
-
 const hexColors = ["#A72320", "#A0221E", "#A72320CC", "#F008", "#fff"];
 
 for (const hexColor of hexColors) {
@@ -57,7 +61,7 @@ for (const hexColor of hexColors) {
 	}
 
 	const filePath =
-		__dirname + "/colors/" + hexColor.replace("#", "").toLowerCase() + ".png";
+		`${outputDir}/` + hexColor.replace("#", "").toLowerCase() + ".png";
 
 	const buffer = PNG.sync.write(png);
 	fs.writeFileSync(filePath, buffer);
