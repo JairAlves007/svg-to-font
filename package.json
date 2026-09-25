@@ -1,0 +1,16 @@
+{
+  "name": "create-color-1px",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "service": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {
+    "pngjs": "^7.0.0"
+  }
+}
